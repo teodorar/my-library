@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,700&family=Martian+Mono:wght@700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    
+    <title>My library</title>
+</head>
+<body>
+
+
+    <header data-header class="header">
+        <p data-all-books-btn class="logo">Library</p>
+        <input data-search class="search" type="input" placeholder="Search by title or author">
+        <button data-add-new-book class="add-new-btn">New book</button>
+        <button data-filter-button class="filter-btn">Filter</button>
+    </header>
+    <main class="wrap">
+    <div class="nav-wrap">
+    <aside data-left-nav class="left-nav">
+        <button data-all-books-btn class="nav-btn">All books</button>
+        <button data-left-nav-btn class="nav-btn" value="reading">Reading now</button>
+        <button data-left-nav-btn class="nav-btn" value="to read">To read</button>
+        <button data-left-nav-btn class="nav-btn" value="finished">Finished</button>
+        <button data-left-nav-btn class="nav-btn" value="series">Series</button>
+        <button data-left-nav-btn class="nav-btn" value="standalone">Standalones</button>
+    </aside>
+</div>
+
+    <section data-all-books-section class=" all-books">
+            <template data-book-container-template>
+                <div data-book-container class="book-container">
+                    <h3 data-book-title class="book-title"></h3>
+                    <p data-author class="author"></p>
+                    <p>Page number: <span data-page-number></span></p>
+                    <p>Genre: <span data-genre></span></p>
+                    <p>Series: <span data-series></span></p>
+                    <p class="status">Status: <span data-status></span></p>
+                    <p>Rating: <span data-rating></span></p>
+                    <button data-see-more class="see-more-btn">See more</button>
+                </div>
+            </template>
+    </section>
+
+    <section data-book-page class="inactive book-page">
+        <template data-book-page-template>
+            <div data-book-page-container class="book-page-container">
+                <div data-book-page-left class="book-page-left">
+                    <h3 data-book-title class="book-title"></h3>
+                    <p data-author class="author"></p>
+                    <p class="bold">Page number: <span contenteditable="true" data-page-number></span></p>
+                    <p class="bold">Genre: <span data-genre></span></p>
+                    <p class="bold">Series: <span data-series></span></p>
+                    <p class="bold">Status: <span contenteditable="true" data-status></span></p>
+                    <p class="bold">Rating: <span data-rating></span></p>
+                </div>
+                <div data-book-page-right class="book-page-right">
+                    <h3 data-my-review>My review</h3>
+                    <p data-review class="review"></p>
+                    <button data-edit-button class="edit-btn">Edit</button>
+                    <button data-delete-button class="delete-btn">Delete</button>
+                </div>
+            </div>
+        </template>
+    </section>
+
+    <section data-form-section class="inactive form-section">
+        <form data-form class="inactive form-container" action="#">
+                <div data-form-left class="form-left">
+                <label for="title">Book title</label>
+                <input type="text" id="title" placeholder="Book title" required>
+                <label for="author">Author</label>
+                <input type="text" id="author" placeholder="Author" required>
+                <label for="page-number">Page number</label>
+                <input type="text" id="page-number" placeholder="Page number">
+                <label for="series">Series</label>
+                <input type="text" id="series" placeholder="Series">
+                <label for="genre">Genre</label>
+                <select name="genre" id="genre">
+                    <option value="classics" selected="selected">Classics</option>
+                    <option value="contemporary">Contemporary</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="feminist">Feminist</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="historical fiction">Historical Fiction</option>
+                    <option value="politics">Politics</option>
+                    <option value="horror">Horror</option>
+                    <option value="nonfiction">Nonfiction</option>
+                    <option value="poetry">Poetry</option>
+                    <option value="short stories">Short stories</option>
+                    <option value="thriller">Thriller</option>
+                </select>
+                <label for="read-status"></label>
+                <select name="reading-status" id="read-status">
+                    <option value="reading">reading</option>
+                    <option value="finished">finished</option>
+                    <option value="to read">to read</option>
+                    <option value="dnf">dnf</option>
+                </select>
+                <label for="rating">Rating</label>
+                <input type="text" id="rating" placeholder="Rating">
+            </div>
+            <div data-form-right class="form-right">
+                <h3 data-my-review>My review</h3>
+                <textarea name="my-review" id="my-review" cols="30" rows="10">
+                </textarea>
+                <button data-form-button type="submit" class="submit-form-btn">Submit</button>
+            </div>
+        </form>
+
+    </section>
+
+    <div data-filter-list class="inactive filter-genre-list">
+        <ul>
+            <li><button data-filter-genre-button class="filter-genre-btn" value="classics">Classics</button></li>
+            <li><button data-filter-genre-button class="filter-genre-btn" value="contemporary">Contemporary</button></li>
+            <li><button data-filter-genre-button class="filter-genre-btn" value="fantasy">Fantasy</button></li>
+            <li><button data-filter-genre-button class="filter-genre-btn" value="feminist">Feminist</button></li>
+            <li><button data-filter-genre-button class="filter-genre-btn" value="fiction">Fiction</button></li>
+            <li><button data-filter-genre-button class="filter-genre-btn" value="historical fiction">Historical Fiction</button></li>
+            <li><button data-filter-genre-button class="filter-genre-btn" value="politics">Politics</button></li>
+            <li><button data-filter-genre-button class="filter-genre-btn" value="horror">Horror</button></li>
+            <li><button data-filter-genre-button class="filter-genre-btn" value="nonfiction">Nonfiction</button></li>
+            <li><button data-filter-genre-button class="filter-genre-btn" value="poetry">Poetry</button></li>
+            <li><button data-filter-genre-button class="filter-genre-btn" value="short stories">Short stories</button></li>
+            <li><button data-filter-genre-button class="filter-genre-btn" value="thriller">Thriller</button></li>
+        </ul>
+    </div>
+</main>
+</body>
+</html>
